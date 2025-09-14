@@ -1,0 +1,26 @@
+// Version
+syntax = "proto3";
+
+// Package name
+option go_package = "github.com/tonrock01/fantasia-shop";
+
+// Structures
+message AccessTokenSearchReq {
+    string accessToken = 1;
+}
+
+message AccessTokenSearchRes {
+    bool isValid = 1;
+}
+
+message RolesCountReq {}
+
+message RolesCountRes {
+    int64 count = 1;
+}
+
+// Methods
+service AuthGrpcService {
+    rpc AccessTokenSearch(AccessTokenSearchReq) returns (AccessTokenSearchRes);
+    rpc RolesCount(RolesCountReq) returns (RolesCountRes);
+}
